@@ -1,0 +1,12 @@
+{
+  "$schema": "https://dev.office.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "spfx-ng-sp-rest-client-side-solution",
+    "id": "002cf532-694a-4b34-9d97-c55ab3749781",
+    "version": "1.0.0.0",
+    "skipFeatureDeployment": true
+  },
+  "paths": {
+    "zippedPackage": "solution/spfx-ng-sp-rest.sppkg"
+  }
+}

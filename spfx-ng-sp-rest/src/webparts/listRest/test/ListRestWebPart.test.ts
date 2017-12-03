@@ -2,7 +2,7 @@
 
 import { assert } from 'chai';
 
-describe('HelloWorldMaterialWebPart', () => {
+describe('ListRestWebPart', () => {
   it('should do something', () => {
     assert.ok(true);
   });
