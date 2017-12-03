@@ -1,0 +1,12 @@
+{
+  "$schema": "https://dev.office.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "spfx-ng-site-provisioning-client-side-solution",
+    "id": "4bab90c7-e023-45c4-ad87-6c99cebfad82",
+    "version": "1.0.0.0",
+    "skipFeatureDeployment": true
+  },
+  "paths": {
+    "zippedPackage": "solution/spfx-ng-site-provisioning.sppkg"
+  }
+}

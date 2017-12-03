@@ -1,0 +1,18 @@
+{
+  "$schema": "https://dev.office.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "site-provisioning-web-part": {
+      "components": [
+        {
+          "entrypoint": "./src/webparts/siteProvisioning/SiteProvisioningWebPart.ts",
+          "manifest": "./src/webparts/siteProvisioning/SiteProvisioningWebPart.manifest.json",
+          "entryModule": "./src/webparts/siteProvisioning/elements/site-provisioning",
+          "entryModuleName": "SiteProvisioningModule"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": { }
+}

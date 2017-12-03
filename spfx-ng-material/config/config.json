@@ -1,0 +1,18 @@
+{
+  "$schema": "https://dev.office.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "angular-material-web-part": {
+      "components": [
+        {
+          "entrypoint": "./src/webparts/angularMaterial/AngularMaterialWebPart.ts",
+          "manifest": "./src/webparts/angularMaterial/AngularMaterialWebPart.manifest.json",
+          "entryModule": "./src/webparts/angularMaterial/elements/angular-material",
+          "entryModuleName": "AngularMaterialModule"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": { }
+}
