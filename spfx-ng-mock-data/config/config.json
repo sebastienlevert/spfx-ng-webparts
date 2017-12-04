@@ -1,0 +1,18 @@
+{
+  "$schema": "https://dev.office.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "mock-data-web-part": {
+      "components": [
+        {
+          "entrypoint": "./src/webparts/mockData/MockDataWebPart.ts",
+          "manifest": "./src/webparts/mockData/MockDataWebPart.manifest.json",
+          "entryModule": "./src/webparts/mockData/elements/mock-data",
+          "entryModuleName": "MockDataModule"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": { }
+}
