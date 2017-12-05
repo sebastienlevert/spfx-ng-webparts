@@ -1,0 +1,18 @@
+{
+  "$schema": "https://dev.office.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "material-list-web-part": {
+      "components": [
+        {
+          "entrypoint": "./src/webparts/materialList/MaterialListWebPart.ts",
+          "manifest": "./src/webparts/materialList/MaterialListWebPart.manifest.json",
+          "entryModule": "./src/webparts/materialList/elements/material-list",
+          "entryModuleName": "MaterialListModule"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": { }
+}

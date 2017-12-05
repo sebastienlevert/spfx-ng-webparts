@@ -1,0 +1,12 @@
+{
+  "$schema": "https://dev.office.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "spfx-ng-material-list-client-side-solution",
+    "id": "4bdc4a0e-7beb-4c61-b734-576d559ea486",
+    "version": "1.0.0.0",
+    "skipFeatureDeployment": true
+  },
+  "paths": {
+    "zippedPackage": "solution/spfx-ng-material-list.sppkg"
+  }
+}

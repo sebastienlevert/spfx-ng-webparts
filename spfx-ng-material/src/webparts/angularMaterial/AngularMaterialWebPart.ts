@@ -64,28 +64,8 @@ export default class AngularMaterialWebPartWebPart extends BaseClientSideWebPart
   private renderComponent(): void {
     const ElementAngularMaterial = customElements.get(this.TAG_NAME);
     const element = new ElementAngularMaterial();
-    element.listId = this.properties.listId;
-    element.viewFields = this.properties.viewFields;
-    element.defaultPageSize = this.properties.defaultPageSize;
+    element.name = this.properties.name;
     this.domElement.appendChild(element);
-  }
-
-  /**
-   * Initializes the PnP context
-   */
-  public onInit(): Promise<void> {
-    return super.onInit().then(_ => {
-      pnp.setup({
-        spfxContext: this.context
-      });
-    });
-  }
-
-  /**
-   * Disables the Reactive Property
-   */
-  protected get disableReactivePropertyChanges(): boolean {
-    return true;
   }
 
   /**
@@ -103,33 +83,14 @@ export default class AngularMaterialWebPartWebPart extends BaseClientSideWebPart
       pages: [
         {
           header: {
-            description: "Angular Material List Configuration"
+            description: "Angular Material Configuration"
           },
           groups: [
             {
               groupName: "Options",
               groupFields: [
-                PropertyFieldListPicker('listId', {
-                  label: 'Select a List',
-                  selectedList: this.properties.listId,
-                  includeHidden: false,
-                  orderBy: PropertyFieldListPickerOrderBy.Title,
-                  disabled: false,
-                  onPropertyChange: this.onPropertyPaneFieldChanged.bind(this),
-                  properties: this.properties,
-                  context: this.context,
-                  onGetErrorMessage: null,
-                  deferredValidationTime: 0,
-                  key: 'listPickerFieldId'
-                }),
-                PropertyPaneTextField('viewFields', {
-                  label: "View Fields"
-                }),
-                PropertyPaneSlider("defaultPageSize", {
-                  min: 5,
-                  step: 5,
-                  max: 50,
-                  label: "Default Page Size"
+                PropertyPaneTextField('name', {
+                  label: "Name"
                 })
               ]
             }

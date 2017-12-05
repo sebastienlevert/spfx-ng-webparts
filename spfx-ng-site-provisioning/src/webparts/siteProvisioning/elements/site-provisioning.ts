@@ -2,6 +2,7 @@ import { Component, Input, ViewChild, AfterViewInit,ViewEncapsulation } from '@a
 import { FormBuilder, FormGroup, Validators, Form } from '@angular/forms';
 import { MatHorizontalStepper, MatStep } from '@angular/material/stepper';
 import { MatInput } from '@angular/material/input';
+import { MatButton } from '@angular/material/button';
 
 @Component({
   selector: 'site-provisioning',
@@ -11,16 +12,18 @@ import { MatInput } from '@angular/material/input';
 })
 export class SiteProvisioning {
   isLinear = true;
-  firstFormGroup: FormGroup;
-  secondFormGroup: FormGroup;
+  basicInformationGroup: FormGroup;
+  advancedInformationGroup: FormGroup;
 
   constructor(private _formBuilder: FormBuilder) { }
 
   ngOnInit() {
-    this.firstFormGroup = this._formBuilder.group({
-      firstCtrl: ['', Validators.required]
+    this.basicInformationGroup = this._formBuilder.group({
+      groupTitle: ['', Validators.required],
+      groupDescription: ['', Validators.required],
+      groupUrl: ['', Validators.required]
     });
-    this.secondFormGroup = this._formBuilder.group({
+    this.advancedInformationGroup = this._formBuilder.group({
       secondCtrl: ['', Validators.required]
     });
   }

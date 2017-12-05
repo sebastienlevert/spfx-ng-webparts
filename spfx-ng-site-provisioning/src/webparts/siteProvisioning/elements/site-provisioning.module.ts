@@ -1,6 +1,4 @@
 import { SiteProvisioning } from './site-provisioning';
-import { SiteProvisioningForm } from './site-provisioning-form';
-import { AppRoutes } from './site-provisioning.routes';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
@@ -10,6 +8,7 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
 
 /**
  * Module that intializes our Angular Element
@@ -21,9 +20,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    MatStepperModule, MatFormFieldModule, MatInputModule
+    MatStepperModule, MatFormFieldModule, MatInputModule, MatButtonModule
   ],
-  declarations: [SiteProvisioning, SiteProvisioningForm],
+  declarations: [SiteProvisioning],
   entryComponents: [SiteProvisioning]
 })
 export class SiteProvisioningModule {

@@ -1,18 +1,24 @@
 <mat-horizontal-stepper [linear]="isLinear">
-  <mat-step [stepControl]="firstFormGroup">
-    <form [formGroup]="firstFormGroup">
-      <ng-template matStepLabel>Fill out your name</ng-template>
+  <mat-step [stepControl]="basicInformationGroup">
+    <form [formGroup]="basicInformationGroup">
+      <ng-template matStepLabel>Basic Information</ng-template>
       <mat-form-field>
-        <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+        <input matInput placeholder="Name of your Office 365 Group" formControlName="groupTitle" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Description of your Office 365 Group" formControlName="groupDescription" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Url your Office 365 Group" formControlName="groupUrl" required>
       </mat-form-field>
       <div>
         <button mat-button matStepperNext>Next</button>
       </div>
     </form>
   </mat-step>
-  <mat-step [stepControl]="secondFormGroup">
-    <form [formGroup]="secondFormGroup">
-      <ng-template matStepLabel>Fill out your address</ng-template>
+  <mat-step [stepControl]="advancedInformationGroup">
+    <form [formGroup]="advancedInformationGroup">
+      <ng-template matStepLabel>Advanced Information</ng-template>
       <mat-form-field>
         <input matInput placeholder="Address" formControlName="secondCtrl" required>
       </mat-form-field>
@@ -24,7 +30,7 @@
   </mat-step>
   <mat-step>
     <ng-template matStepLabel>Done</ng-template>
-    You are now done.
+    Hooray!
     <div>
       <button mat-button matStepperPrevious>Back</button>
     </div>

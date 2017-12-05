@@ -1,7 +1,7 @@
 {
   "$schema": "https://dev.office.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
-  "id": "9e8dd451-fa90-4b57-916a-a756bb277a78",
-  "alias": "AngularMaterialWebPart",
+  "id": "d9c1e70f-e357-48a7-9d10-f955bd2f1b85",
+  "alias": "MaterialListWebPart",
   "componentType": "WebPart",
 
   // The "*" signifies that the version should be taken from the package.json
@@ -16,11 +16,11 @@
   "preconfiguredEntries": [{
     "groupId": "5c03119e-3074-46fd-976b-c60198311f70", // Other
     "group": { "default": "Other" },
-    "title": { "default": "AngularMaterial" },
-    "description": { "default": "AngularMaterial description" },
+    "title": { "default": "MaterialList" },
+    "description": { "default": "MaterialList description" },
     "officeFabricIconFontName": "Page",
     "properties": {
-      "name": "Hello World"
+      "defaultPageSize": 5
     }
   }]
 }
