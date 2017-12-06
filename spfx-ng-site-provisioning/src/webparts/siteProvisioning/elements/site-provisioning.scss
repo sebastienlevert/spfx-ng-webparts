@@ -56,3 +56,31 @@ $theme: mat-light-theme($primary, $accent);
   overflow: auto;
   max-height: 500px;
 }
+
+.mat-step-content {
+  margin-left: 15px;
+  margin-top: 15px;
+  margin-right: 15px;
+  margin-bottom: 30px;
+}
+
+.mat-table {
+  display: block;
+}
+
+.mat-row,
+.mat-header-row {
+  display: flex;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  align-items: center;
+  min-height: 48px;
+  padding: 0 24px;
+}
+
+.mat-cell,
+.mat-header-cell {
+  flex: 1;
+  overflow: hidden;
+  word-wrap: break-word;
+}

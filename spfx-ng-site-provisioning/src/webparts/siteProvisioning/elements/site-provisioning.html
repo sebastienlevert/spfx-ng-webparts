@@ -1,38 +1,104 @@
-<mat-horizontal-stepper [linear]="isLinear">
-  <mat-step [stepControl]="basicInformationGroup">
-    <form [formGroup]="basicInformationGroup">
-      <ng-template matStepLabel>Basic Information</ng-template>
-      <mat-form-field>
-        <input matInput placeholder="Name of your Office 365 Group" formControlName="groupTitle" required>
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput placeholder="Description of your Office 365 Group" formControlName="groupDescription" required>
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput placeholder="Url your Office 365 Group" formControlName="groupUrl" required>
-      </mat-form-field>
+<div class="example-container mat-elevation-z8">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span>Site Provisioning Web Part</span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <mat-horizontal-stepper [linear]="isLinear" *ngIf="!success">
+    <mat-step [stepControl]="basicInformationGroup">
+      <form [formGroup]="basicInformationGroup" class="mat-step-content">
+        <ng-template matStepLabel>Basic Information</ng-template>
+        <mat-form-field>
+          <input matInput placeholder="Title of your Office 365 Group" formControlName="groupTitle" [(ngModel)]="groupTitle" required>
+        </mat-form-field>
+        <mat-form-field>
+          <textarea matInput matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="5" placeholder="Description of your Office 365 Group" formControlName="groupDescription" [(ngModel)]="groupDescription" required></textarea>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Url your Office 365 Group" formControlName="groupUrl" [(ngModel)]="groupUrl" required>
+        </mat-form-field>
+        <div>
+          <button mat-raised-button color="primary" matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="advancedInformationGroup">
+      <form [formGroup]="advancedInformationGroup" class="mat-step-content">
+        <ng-template matStepLabel>Advanced Information</ng-template>
+        <div class="mat-input-wrapper mat-form-field-wrapper">
+          <mat-slide-toggle color="primary" formControlName="groupIsPrivate" [(ngModel)]="groupIsPrivate">Office 365 Group is Private</mat-slide-toggle>
+        </div>
+        <div class="mat-input-wrapper mat-form-field-wrapper">
+          <mat-slide-toggle color="primary" formControlName="groupHasTeam" [(ngModel)]="groupHasTeam">Office 365 Group has an associated Team</mat-slide-toggle>
+        </div>
+        <div class="mat-input-wrapper mat-form-field-wrapper">
+          <mat-slide-toggle color="primary" formControlName="groupHasTemplate" [(ngModel)]="groupHasTemplate">Office 365 Group has an associate PnP Template</mat-slide-toggle>
+        </div>
+        <div class="mat-input-wrapper mat-form-field-wrapper" *ngIf="groupHasTemplate">
+          <mat-form-field>
+            <mat-select placeholder="Select your PnP Template" [(ngModel)]="groupTemplateUrl" formControlName="groupTemplateUrl">
+              <mat-option *ngFor="let template of templates" [value]="template.EncodedAbsUrl">
+                {{ template.Title }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          <button mat-raised-button color="primary" matStepperPrevious>Back</button>
+          <button mat-raised-button color="primary" matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
       <div>
-        <button mat-button matStepperNext>Next</button>
+        <ng-template matStepLabel>Review your Office 365 Group</ng-template>
+        <div class="mat-table mat-step-content">
+          <div class="mat-header-row">
+            <div class="mat-header-cell">Setting</div>
+            <div class="mat-header-cell">Value</div>
+          </div>
+          <div class="mat-row">
+            <div class="mat-cell">Office 365 Group Title</div>
+            <div class="mat-cell">{{ groupTitle }}</div>
+          </div>
+          <div class="mat-row">
+            <div class="mat-cell">Office 365 Group Description</div>
+            <div class="mat-cell">{{ groupDescription }}</div>
+          </div>
+          <div class="mat-row">
+            <div class="mat-cell">Office 365 Group Url</div>
+            <div class="mat-cell">{{ groupUrl }}</div>
+          </div>
+          <div class="mat-row">
+            <div class="mat-cell">Office 365 Group is Private</div>
+            <div class="mat-cell">{{ groupIsPrivate ? 'Yes' : 'No' }}</div>
+          </div>
+          <div class="mat-row">
+            <div class="mat-cell">Office 365 Group has an associated Team</div>
+            <div class="mat-cell">{{ groupHasTeam ? 'Yes' : 'No' }}</div>
+          </div>
+          <div class="mat-row">
+            <div class="mat-cell">Office 365 Group has an associated PnP Template</div>
+            <div class="mat-cell">{{ groupHasTemplate ? 'Yes' : 'No' }}</div>
+          </div>
+          <div class="mat-row">
+            <div class="mat-cell">Office 365 Group PnP Template Url</div>
+            <div class="mat-cell">{{ groupTemplateUrl }}</div>
+          </div>
+        </div>
+        <div>
+          <button mat-raised-button color="primary" matStepperPrevious>Back</button>
+          <button mat-raised-button color="accent" (click)="_onCreateGroup()" matStepperNext>Complete</button>
+        </div>
       </div>
-    </form>
-  </mat-step>
-  <mat-step [stepControl]="advancedInformationGroup">
-    <form [formGroup]="advancedInformationGroup">
-      <ng-template matStepLabel>Advanced Information</ng-template>
-      <mat-form-field>
-        <input matInput placeholder="Address" formControlName="secondCtrl" required>
-      </mat-form-field>
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
-      </div>
-    </form>
-  </mat-step>
-  <mat-step>
-    <ng-template matStepLabel>Done</ng-template>
-    Hooray!
-    <div>
-      <button mat-button matStepperPrevious>Back</button>
-    </div>
-  </mat-step>
-</mat-horizontal-stepper>
+    </mat-step>
+  </mat-horizontal-stepper>
+  <div *ngIf="success" class="mat-step-content">
+    <section class="mat-typography">
+      <h1>Congratulations !</h1>
+      <img src="https://media.giphy.com/media/g9582DNuQppxC/giphy.gif">
+      <h3>Click on the following link to visit your site.</h3>
+      <a [attr.href]="createdSite.url" target="_blank">{{ createdSite.title }}</a>
+    </section>
+  </div>
+</div>
