@@ -17,6 +17,10 @@ export class HelloWorld {
   declarations: [HelloWorld],
   entryComponents: [HelloWorld]
 })
-export class HelloWorldModule {
+export class HelloWorldModule 
+  constructor(private injector: Injector) {
+        const customElement = createCustomElement(HelloWorld, { injector });
+        customElements.define('hello-world', customElement);
+      }
   ngDoBootstrap(){}
 }
